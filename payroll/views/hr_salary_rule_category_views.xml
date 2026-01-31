@@ -52,16 +52,10 @@
         </field>
     </record>
     <record id="hr_salary_rule_category_view_search" model="ir.ui.view">
-        <field name="name">hr.salary.rule.category.select</field>
+        <field name="name">hr.salary.rule.category.search</field>
         <field name="model">hr.salary.rule.category</field>
         <field name="arch" type="xml">
-            <search string="Salary Rule Categories">
-                <field
-                    name="name"
-                    string="Salary Rule Categories"
-                    filter_domain="['|',('name','ilike',self),('code','ilike',self)]"
-                />
-            </search>
+            <search><field name="name"/></search>
         </field>
     </record>
     <record id="hr_salary_rule_category_action" model="ir.actions.act_window">

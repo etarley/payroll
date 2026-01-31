@@ -5,24 +5,7 @@
         <field name="name">hr.payslip.run.search</field>
         <field name="model">hr.payslip.run</field>
         <field name="arch" type="xml">
-            <search string="Search Payslip Batches">
-                <field name="name" string="Payslip Batches" />
-                <field name="company_id" groups="base.group_multi_company" />
-                <field name="date_start" />
-                <field name="date_end" />
-                <filter
-                    string="Draft"
-                    name="draft"
-                    domain="[('state','=','draft')]"
-                    help="Draft Payslip Batches"
-                />
-                <filter
-                    name="done_filter"
-                    string="Done"
-                    domain="[('state','=','close')]"
-                    help="Done Payslip Batches"
-                />
-            </search>
+            <search><field name="name"/></search>
         </field>
     </record>
     <record id="hr_payslip_run_view_tree" model="ir.ui.view">

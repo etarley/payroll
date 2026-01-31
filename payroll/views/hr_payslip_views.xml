@@ -327,73 +327,10 @@
     </record>
 
     <record id="hr_payslip_view_search" model="ir.ui.view">
-        <field name="name">hr.payslip.select</field>
+        <field name="name">hr.payslip.search</field>
         <field name="model">hr.payslip</field>
         <field name="arch" type="xml">
-            <search string="Search Payslips">
-                <field name="employee_id" />
-                <field
-                    name="name"
-                    string="Payslips"
-                    filter_domain="['|',('name','ilike',self),('number','ilike',self)]"
-                />
-                <field name="date_from" />
-                <field name="contract_id" />
-                <field name="payslip_run_id" />
-                <filter
-                    string="Draft"
-                    name="draft"
-                    domain="[('state', '=', 'draft')]"
-                />
-                <filter
-                    string="Pending Review"
-                    name="verify"
-                    domain="[('state', '=', 'verify')]"
-                />
-                <filter
-                    string="Done"
-                    name="done"
-                    domain="[('state','=','done')]"
-                    help="Done Slip"
-                />
-                <separator />
-                <filter
-                    string="Date"
-                    name="date_filter"
-                    date="date_to"
-                    default_period="month-1"
-                />
-                <separator />
-                <filter
-                    string="Refunded"
-                    name="credit_note"
-                    domain="[('credit_note', '=', True)]"
-                />
-                <separator />
-                <group expand="0" string="Group By">
-                    <filter
-                        string="Employees"
-                        name="employee_id"
-                        context="{'group_by':'employee_id'}"
-                    />
-                    <filter
-                        string="PaySlip Batch"
-                        name="payslip_run_id"
-                        context="{'group_by':'payslip_run_id'}"
-                    />
-                    <filter
-                        string="Companies"
-                        name="company_id"
-                        groups="base.group_multi_company"
-                        context="{'group_by':'company_id'}"
-                    />
-                    <filter
-                        string="States"
-                        name="state"
-                        context="{'group_by':'state'}"
-                    />
-                </group>
-            </search>
+            <search><field name="name"/></search>
         </field>
     </record>
     <record id="hr_payslip_action" model="ir.actions.act_window">

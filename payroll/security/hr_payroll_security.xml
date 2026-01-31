@@ -30,10 +30,7 @@
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
     </record>
-    <record id="base.default_user" model="res.users">
-        <!-- v19: groups_id → group_ids -->
-        <field name="group_ids" eval="[(4,ref('payroll.group_payroll_manager'))]" />
-    </record>
+    <!-- base.default_user removed in v19 -->
     <record id="hr_payroll_rule_officer" model="ir.rule">
         <field name="name">Officer and subordinates Payslip</field>
         <field name="model_id" ref="model_hr_payslip" />

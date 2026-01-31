@@ -341,25 +341,10 @@
         </field>
     </record>
     <record id="hr_salary_rule_view_search" model="ir.ui.view">
-        <field name="name">hr.salary.rule.select</field>
+        <field name="name">hr.salary.rule.search</field>
         <field name="model">hr.salary.rule</field>
         <field name="arch" type="xml">
-            <search string="Search Salary Rule">
-                <field
-                    name="name"
-                    string="Salary Rules"
-                    filter_domain="['|',('name','ilike',self),('code','ilike',self)]"
-                />
-                <field name="category_id" />
-                <field name="condition_range_min" />
-                <group col="8" colspan="4" expand="0" string="Group By">
-                    <filter
-                        string="Category"
-                        name="head"
-                        context="{'group_by':'category_id'}"
-                    />
-                </group>
-            </search>
+            <search><field name="name"/></search>
         </field>
     </record>
     <record id="action_salary_rule_form" model="ir.actions.act_window">

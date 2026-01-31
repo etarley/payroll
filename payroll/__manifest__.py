@@ -22,7 +22,7 @@
         "wizard/hr_payroll_contribution_register_report_views.xml",
         "wizard/hr_payroll_payslips_by_employees_views.xml",
         "views/menus.xml",
-        "views/hr_contract_views.xml",
+        # "views/hr_contract_views.xml",  # Removed - needs full hr_contract views
         "views/hr_payroll_structure_views.xml",
         "views/hr_salary_rule_category_views.xml",
         "views/hr_contribution_register_views.xml",
@@ -35,7 +35,7 @@
         "views/report_payslip.xml",
         "views/report_payslipdetails.xml",
         "report/report.xml",
-        "views/res_config_settings_views.xml",
+        # "views/res_config_settings_views.xml",  # Disabled - v19 settings app inheritance
         "wizard/hr_payroll_send_email.xml",
         "wizard/hr_payslip_change_state_view.xml",
     ],
