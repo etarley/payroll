@@ -5,9 +5,15 @@
         <field name="description">Manage employee payroll</field>
         <field name="sequence">16</field>
     </record>
+    <!-- v19: res.groups.privilege intermediate record -->
+    <record id="payroll_privilege" model="res.groups.privilege">
+        <field name="name">Payroll</field>
+        <field name="category_id" ref="module_category_payroll"/>
+    </record>
     <record id="group_payroll_user" model="res.groups">
         <field name="name">Officer</field>
-        <field name="category_id" ref="module_category_payroll" />
+        <!-- v19: category_id → privilege_id -->
+        <field name="privilege_id" ref="payroll_privilege" />
         <field
             name="implied_ids"
             eval="[(4, ref('hr.group_hr_user')), (4, ref('hr_contract.group_hr_contract_manager'))]"
@@ -15,15 +21,18 @@
     </record>
     <record id="group_payroll_manager" model="res.groups">
         <field name="name">Manager</field>
-        <field name="category_id" ref="module_category_payroll" />
+        <!-- v19: category_id → privilege_id -->
+        <field name="privilege_id" ref="payroll_privilege" />
         <field name="implied_ids" eval="[(4, ref('payroll.group_payroll_user'))]" />
+        <!-- v19: users → user_ids -->
         <field
-            name="users"
+            name="user_ids"
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
     </record>
     <record id="base.default_user" model="res.users">
-        <field name="groups_id" eval="[(4,ref('payroll.group_payroll_manager'))]" />
+        <!-- v19: groups_id → group_ids -->
+        <field name="group_ids" eval="[(4,ref('payroll.group_payroll_manager'))]" />
     </record>
     <record id="hr_payroll_rule_officer" model="ir.rule">
         <field name="name">Officer and subordinates Payslip</field>
